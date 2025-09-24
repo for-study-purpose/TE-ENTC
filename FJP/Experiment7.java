@@ -1,28 +1,71 @@
-interface Area {
-    double PI = 3.14159265;
-    double compute(double length, double width);
-}
+class Player {
+    String name;
+    int age;
+    String game;
+    
+    Player(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
-class Rectangle implements Area {
-    @Override
-    public double compute(double length, double width) {
-        return length * width;
+    Player(String name, int age, String game) {
+        this.name = name;
+        this.age = age;
+        this.game = game;
+    }
+
+    public void displayPlayerDetails() {
+        System.out.println("Name : " + name);
+        System.out.println("Age : " + age);
+
+        if (game != null) {
+            System.out.println("Game : " + game);
+        }
+
+        System.out.println();
     }
 }
 
-class Circle implements Area {
-    @Override
-    public double compute(double radius, double ignored) {
-        return PI * radius * radius;
+class CricketPlayer extends Player {
+    static String game = "Cricket";
+
+    CricketPlayer(String name, int age) {
+        super(name, age, game);
+    }
+}
+
+class FootballPlayer extends Player {
+    static String game = "Football";
+
+    FootballPlayer(String name, int age) {
+        super(name, age, game);
+    }
+}
+
+class HockeyPlayer extends Player {
+    static String game = "Hockey";
+
+    HockeyPlayer(String name, int age) {
+        super(name, age, game);
     }
 }
 
 public class Experiment7 {
     public static void main(String[] args) {
-        Area rect = new Rectangle();
-        System.out.println("Area of Rectangle: " + rect.compute(9.36, 9.36));
 
-        Area circ = new Circle();
-        System.out.println("Area of Circle: " + circ.compute(9, 0));
+        System.out.println();
+
+        Player p = new Player("Dnyanesh", 20);
+
+        Player pC = new CricketPlayer("Suresh", 21);
+
+        Player pF = new FootballPlayer("Aryan", 23);
+
+        Player pH = new HockeyPlayer("Vineet", 21);
+
+        p.displayPlayerDetails();
+        pC.displayPlayerDetails();
+        pF.displayPlayerDetails();
+        pH.displayPlayerDetails();
     }
 }
