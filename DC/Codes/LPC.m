@@ -4,7 +4,7 @@ close all;
 
 n = input('Enter the length of codeword(n):');
 k = input('Enter the length of message bits(k):');
-parity_matrix = input('Enter the parity matrix(size k x (n-k))');
+parity_matrix = input('Enter the parity matrix(size k x (n-k)):');
 
 identity_matrix = eye(k);
 generator_matrix=[identity_matrix, parity_matrix];
